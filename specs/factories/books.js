@@ -1,7 +1,7 @@
 module.exports = (factory, Models) => {
   factory.define("Book", Models.Book, {
-    title: "My book",
-    author: "Guy Guy",
+    title: "Les Miserables",
+    belongsTo: "author",
     createdAt: new Date(),
     updatedAt: new Date(),
   });

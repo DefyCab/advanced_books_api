@@ -5,6 +5,7 @@ const booksController = {
     const books = await Book.findAll({
       attributes: ["id", "title"],
     });
+
     response.json({ books: books });
   },
 

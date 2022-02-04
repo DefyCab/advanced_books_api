@@ -1,4 +1,4 @@
-const { expect, factory, pending, Models } = require("../helpers");
+const { expect, factory, Models } = require("../helpers");
 const { Association, DataTypes } = require("sequelize");
 const { Book } = Models;
 
@@ -43,7 +43,7 @@ describe("Book", () => {
   describe("Instance", () => {
     it("is expected to have a valid factory", () => {
       expect(subject).to.include({
-        title: "My book",
+        title: "Les Miserables",
       });
     });
 
@@ -54,6 +54,7 @@ describe("Book", () => {
     });
 
     describe("is expected to have association accessors", () => {
+      
       it("for the author association", () => {
         expect(subject)
           .to.respondTo("getAuthor")

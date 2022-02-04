@@ -8,9 +8,11 @@ describe("GET /api/books", () => {
   });
 
   beforeEach(async () => {
-    books = await factory.createMany("Book", 5, [
-      { title: "Bible", author: "God" },
-    ]);
+    author = await factory.create("Author");
+  });
+
+  beforeEach(async () => {
+    books = await factory.createMany("Book", 5);
     response = await request.get("/api/books/");
   });
 
@@ -26,7 +28,8 @@ describe("GET /api/books", () => {
     it("is expected to include an id and title", () => {
       const expectedJson = {
         id: books[0].id,
-        title: "Bible",
+        title: "Les Miserables",
+        AuthorId: author.id
       };
 
       expect(response.body["books"][0]).to.deep.equal(expectedJson);
